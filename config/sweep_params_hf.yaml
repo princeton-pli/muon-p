@@ -1,0 +1,33 @@
+# Muon LM-pretraining sweep configuration.
+#
+# Usage:   ./submit_hf.sh            (SWEEP=1 is the default)
+# Each list item under `runs:` becomes one training job. Every key is exported
+# as an environment variable and consumed by run_hf.sh, so any variable in
+# run_hf.sh can be set here. Add or remove runs freely.
+
+runs:
+  # SmolLM2-135M from scratch on FineWeb-Edu with standard Muon (newtonschulz5).
+  - muon_backend: "newtonschulz5"
+    model_name_or_path: "HuggingFaceTB/SmolLM2-135M"
+    from_pretrained: "False"
+    max_seq_length: 1024
+    per_device_train_batch_size: 8
+    max_steps: 5000
+    learning_rate: 3.6e-3
+    min_lr_rate: 0.5
+    seed: 42
+    run_name_postfix: "fineweb"
+
+  # Same setup with the fractional-power (halfpower) backend, exponent 1/3.
+  - muon_backend: "halfpower"
+    muon_exponent: "1/3"
+    halfpower_c: 0.66
+    model_name_or_path: "HuggingFaceTB/SmolLM2-135M"
+    from_pretrained: "False"
+    max_seq_length: 1024
+    per_device_train_batch_size: 8
+    max_steps: 5000
+    learning_rate: 3.6e-3
+    min_lr_rate: 0.5
+    seed: 42
+    run_name_postfix: "fineweb"

@@ -1,0 +1,29 @@
+# Muon math / reasoning finetuning sweep configuration.
+#
+# Usage:   ./submit_gsm8k.sh         (SWEEP=1 is the default)
+# Each list item under `runs:` becomes one finetuning job. Every key is exported
+# as an environment variable and consumed by run_gsm8k.sh, so any variable in
+# run_gsm8k.sh can be set here. Add or remove runs freely.
+
+runs:
+  # GSM-8K finetune of pretrained SmolLM2-135M with standard Muon.
+  - muon_backend: "newtonschulz5"
+    model_name_or_path: "HuggingFaceTB/SmolLM2-135M"
+    from_pretrained: "True"
+    dataset_name: "openai/gsm8k"
+    learning_rate: 2e-5
+    max_steps: 2000
+    per_device_train_batch_size: 32
+    run_name_postfix: "gsm8k"
+
+  # Same finetune with the fractional-power (halfpower) backend, exponent 1/3.
+  - muon_backend: "halfpower"
+    muon_exponent: "1/3"
+    halfpower_c: 0.66
+    model_name_or_path: "HuggingFaceTB/SmolLM2-135M"
+    from_pretrained: "True"
+    dataset_name: "openai/gsm8k"
+    learning_rate: 2e-5
+    max_steps: 2000
+    per_device_train_batch_size: 32
+    run_name_postfix: "gsm8k"
