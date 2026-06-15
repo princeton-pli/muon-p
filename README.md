@@ -1,6 +1,6 @@
 # $\text{Muon}^p$: Muon with Fractional Spectral Powers
 
-[![arXiv](https://img.shields.io/badge/arXiv-2605.08478-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2605.08478)
+[![arXiv](https://img.shields.io/badge/arXiv-2605.08478-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2606.13867)
 
 
 $\text{Muon}^p$ is a Muon-based optimizer that extends it to arbitrary fractional spectral powers $p$ for $0 < p < 1$. $\text{Muon}^p$ is especially effective at finetuning, outperforming Muon and other baselines on a variety of tasks. $\text{Muon}^p$ also provides a valuable tool for understanding the optimal spectral geometry during various stages of training.
@@ -178,7 +178,7 @@ during training with `utils.record_grad`, then point the script at the dumped
 @article{muonp2026,
   title={MuonP: Muon with Fractional Spectral Powers},
   author={Dong, Yihe and Sawin, Will},
-  journal={arXiv preprint arXiv:2606:},
+  journal={arXiv:2606.13867},
   year={2026}
 }
 ```

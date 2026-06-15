@@ -351,7 +351,7 @@ class MuonArguments:
         metadata={"help": "Exponent for halfpower backend: '1/2', '1/3', '1/5', '1/7', '3/5', '1/15', or '13/15'"},
     )
     muon_lr_factor: float = field(
-        default=0.1,
+        default=0.3,
         metadata={"help": "Muon learning rate = muon_lr_factor * learning_rate"},
     )
     muon_momentum: float = field(
